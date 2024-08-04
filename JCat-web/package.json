@@ -1,0 +1,65 @@
+{
+  "name": "algorithm",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve --port 8081",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@mdi/font": "^7.0.96",
+    "axios": "^0.26.0",
+    "codemirror": "^5.65.2",
+    "groovy-beautify": "^0.0.17",
+    "vue": "^2.6.14",
+    "vue-codemirror": "^4.0.6",
+    "vue-router": "^3.5.1",
+    "vuetify": "^2.6.4",
+    "vuex": "3.6.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "less": "^4.1.3",
+    "less-loader": "^11.1.0",
+    "raw-loader": "^4.0.2",
+    "sass": "~1.32.0",
+    "sass-loader": "^10.0.0",
+    "vue-cli-plugin-vuetify": "^2.4.6",
+    "vue-template-compiler": "^2.6.14",
+    "vuetify-loader": "^1.7.0",
+    "webpack-bundle-analyzer": "^4.9.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
+    },
+    "rules": {
+      "no-unused-vars": "off",
+      "no-extra-semi": "off",
+      "no-useless-escape": "off",
+      "vue/no-unused-components": "off",
+      "no-empty": "off"
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

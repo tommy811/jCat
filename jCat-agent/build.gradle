@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id 'groovy'
+}
+
+dependencies {
+    compileOnly files("${System.env.JAVA_HOME}/lib/tools.jar")
+    implementation 'com.taobao.arthas:arthas-vmtool:3.7.2'
+    implementation 'org.codehaus.groovy:groovy:3.0.21'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+    implementation project(path: ':agent-adapter')
+}
+
+
+compileJava {
+    options.compilerArgs = ["-Xlint:unchecked"]
+    classpath += files(sourceSets.main.groovy.classesDirectory)
+}
+compileGroovy {
+    classpath = sourceSets.main.compileClasspath
+}
+
+
+shadowJar {
+    mergeServiceFiles()
+    configurations = [project.configurations.runtimeClasspath]
+
+    from("${parent.projectDir}/JCat-web/dist/") {
+        into("web/")
+    }
+}
+build {
+    dependsOn shadowJar
+}
+jar {
+    manifest {
+        attributes 'Premain-Class': 'org.coderead.jcat.Agent',
+                'Agent-Class': 'org.coderead.jcat.Agent',
+                'Main-Class': 'org.coderead.jcat.Agent',
+                'can-redefine-classes': 'true',
+                'can-retransform-classes': 'true'
+    }
+}
+

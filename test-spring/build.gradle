@@ -1,0 +1,39 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.13'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+    id 'java'
+}
+
+group = 'cn.coderead'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '8'
+targetCompatibility = '8'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
+    implementation 'mysql:mysql-connector-java:8.0.25'
+
+    testImplementation 'com.mchange:c3p0:0.9.5.5'
+    testImplementation  'org.apache.commons:commons-dbcp2:2.9.0'
+    implementation 'com.alibaba:druid-spring-boot-starter:1.2.6'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation project(path: ':jCat-agent')
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

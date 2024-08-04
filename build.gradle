@@ -1,0 +1,38 @@
+plugins {
+    id 'base'
+}
+subprojects {
+    apply plugin: 'java' // 为每个子项目应用Java插件
+    version = '0.1-SNAPSHOT'
+    group = 'cn.coderead'
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    repositories {
+        mavenCentral() // 添加中央仓库
+    }
+
+    dependencies {
+        testImplementation 'junit:junit:4.12' // 测试库依赖
+        compileOnly 'org.projectlombok:lombok:1.18.26'
+        annotationProcessor 'org.projectlombok:lombok:1.18.26'
+    }
+}
+
+task buildProduct(type: Copy) {
+    def boot = findProject('jcat-boot')
+    def agent = findProject('jCat-agent')
+    from("${boot.buildDir}/libs/${boot.name}-${boot.version}.jar") {
+        rename { "${boot.name}.jar" }
+    }
+    from("${agent.buildDir}/libs/${agent.name}-${agent.version}-all.jar") {
+        into "lib"
+        rename { "${agent.name}.jar" }
+    }
+    into 'build'
+}
+
+
+
+
+
+

@@ -1,0 +1,5 @@
+rootProject.name = 'JCat'
+include 'jCat-agent'
+include 'agent-adapter'
+include 'jcat-boot'
+include 'test-spring'
