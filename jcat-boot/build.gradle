@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+}
+
+group = 'cn.coderead'
+jar {
+    manifest {
+        attributes 'Premain-Class': 'org.coderead.jcat.BootstrapAgent',
+                'Agent-Class': 'org.coderead.jcat.BootstrapAgent',
+                'main-class':'org.coderead.jcat.BootstrapAgent',
+                'can-redefine-classes': 'true',
+                'can-retransform-classes': 'true'
+    }
+}
+
