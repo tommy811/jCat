@@ -5,6 +5,7 @@ import org.coderead.jcat.common.Assert;
 import org.coderead.jcat.service.AttachService;
 import org.coderead.jcat.service.ConsoleService;
 import org.coderead.jcat.service.DefaultHttpServer;
+import org.coderead.jcat.service.ResourceExplorerService;
 
 import java.awt.*;
 import java.io.ByteArrayInputStream;
@@ -26,6 +27,8 @@ public class Agent {
     public static Instrumentation instrumentation;
     static DefaultHttpServer httpServer = DefaultHttpServer.getInstance();
     static ConsoleService consoleService = new ConsoleService(); // 控制台服务
+    static ResourceExplorerService resourceService = new ResourceExplorerService(); // 控制台服务
+
 
     public static void premain(String args, Instrumentation instrumentation) {
         start(args, instrumentation);

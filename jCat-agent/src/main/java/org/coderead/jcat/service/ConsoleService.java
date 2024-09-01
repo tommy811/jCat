@@ -364,7 +364,7 @@ public class ConsoleService {
                 loader.add(allLoadedClass.getClassLoader());
             }
         }
-
+    // TODO 异常 java.lang.NoClassDefFoundError: org/coderead/jcat/service/ConsoleService$$Lambda$127
         ClassLoader finalDefaultLoader = Optional.ofNullable(defaultLoader).orElseGet(() -> loader.stream().filter(l -> l.getClass().getName().equals("sun.misc.Launcher$AppClassLoader")).findFirst().get());
         return loader.stream().map(l ->
                 new ClassLoaderInfo(l.getClass().getName(), System.identityHashCode(l) + "", l == finalDefaultLoader)

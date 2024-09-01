@@ -96,7 +96,22 @@ export class ConsoleService {
     }
 }
 
+export class  ResourceExplorerService {
+    constructor() {
+        this.api = createBaseApi(`/jCat/api/resource`);
+        addResponseFilter(this.api);
+    }
+    getAllClass(){
+        let params = new URLSearchParams({  });
+        return this.api.get(`/allClass?${params.toString()}`);
+    }
+    decompilerClass(classId){
+        let params = new URLSearchParams({ classId });
+        return this.api.get(`/decompilerClass?${params.toString()}`);
+    }
+}
 export default {
     ConsoleService,
+    ResourceExplorerService
 }
 

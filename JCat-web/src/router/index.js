@@ -1,18 +1,23 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import ConsoleView from '../components/Console.vue'
-import AppMainView from "../views/AppMainView.vue"
+import console from "../components/Console.vue"
+import resourceExplorer from "../components/ResourceExplorer.vue"
+
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: "/console",
-    component: ConsoleView
+    component: console,
   },
   {
     path: "/",
-    component: AppMainView
+    component: console
+  },
+  {
+    path: "/resource",
+    component: resourceExplorer
   },
 ]
 
