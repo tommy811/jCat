@@ -11,7 +11,7 @@ dependencies {
     implementation 'com.taobao.arthas:arthas-vmtool:3.7.2'
     implementation 'org.codehaus.groovy:groovy:3.0.21'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
-    implementation files("/Users/tommy/.m2/repository/jd/jd-core/1.1.4/jd-core-1.1.4.jar")
+    implementation files("${projectDir.path}/lib/jd-core-1.1.4.jar")
     implementation project(path: ':agent-adapter')
 }
 
